@@ -30,19 +30,25 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
+	RemoveFormat,
+	Highlight,
 	Alignment,
 	Indent,
 	IndentBlock,
 	FontSize,
 	FontFamily,
+	FontColor,
 	UploadAdapter,
 	Autoformat,
 	Bold,
@@ -72,10 +78,12 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
-			'outdent', 'indent',
+			'removeFormat', 'outdent', 'indent',
 			'|',
 			'fontSize',
 			'fontFamily',
+			'fontColor',
+			'highlight',
 			'alignment',
 			'bold',
 			'italic',
@@ -90,6 +98,116 @@ ClassicEditor.defaultConfig = {
 			'undo',
 			'redo'
 		]
+	},
+
+	fontColor: {
+		columns: 6,
+		colors: [
+			{
+				color: '#a52422',
+				label: 'RedBrown'
+			},
+			{
+				color: '#890620',
+				label: 'Burgundy'
+			},
+			{
+				color: '#231942',
+				label: 'YankeesBlue'
+			},
+			{
+				color: '#a4bab7',
+				label: 'CambridgeBlue'
+			},
+			{
+				color: '#75b09c',
+				label: 'GreenSheen'
+			},
+			{
+				color: '#93e5ab',
+				label: 'TealDeer'
+			},
+			{
+				color: '#00241b',
+				label: 'DarkGreen'
+			},
+			{
+				color: '#36494e',
+				label: 'Charcoal'
+			},
+			{
+				color: '#bea57d',
+				label: 'PaleTaupe'
+			},
+			{
+				color: '#a0ca92',
+				label: 'EtonBlue'
+			},
+			{
+				color: '#b4dc7f',
+				label: 'MediumSpringBud'
+			},
+			{
+				color: '#e0be36',
+				label:'MeatBrown'
+			},
+			{
+				color: '#feffa5',
+				label: 'Canary'
+			},
+			{
+				color: 'hsl(0, 0%, 0%)',
+				label: 'Black'
+			},
+			{
+				color: 'hsl(0, 0%, 30%)',
+				label: 'Dim grey'
+			},
+			{
+				color: 'hsl(0, 0%, 60%)',
+				label: 'Grey'
+			},
+			{
+				color: 'hsl(0, 0%, 90%)',
+				label: 'Light grey'
+			},
+			{
+				color: 'hsl(0, 0%, 100%)',
+				label: 'White',
+				hasBorder: true
+			},
+		]
+	},
+
+	highlight: {
+		options: [
+			{
+				model: 'yellowMarker',
+				class: 'marker-yellow',
+				title: 'Yellow marker',
+				color: 'var(--ck-highlight-marker-yellow)',
+				type: 'marker'
+			},
+			{
+				model: 'greenMarker',
+				class: 'marker-green',
+				title: 'Green marker',
+				color: 'var(--ck-highlight-marker-green)',
+				type: 'marker'
+			},
+			{
+				model: 'redPen',
+				class: 'pen-red',
+				title: 'Red pen',
+				color: 'var(--ck-highlight-pen-red)',
+				type: 'pen'
+			}
+		]
+	},
+
+	indentBlock: {
+		offset: 1,
+		unit: 'em'
 	},
 
 	fontSize: {
