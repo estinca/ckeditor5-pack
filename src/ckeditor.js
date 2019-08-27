@@ -10,6 +10,7 @@ import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
@@ -35,6 +36,7 @@ import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import Div from './plugins/div/div';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -53,6 +55,7 @@ ClassicEditor.builtinPlugins = [
 	Autoformat,
 	Bold,
 	Italic,
+	Underline,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
@@ -69,6 +72,7 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
+	Div
 ];
 
 // Editor configuration.
@@ -87,6 +91,7 @@ ClassicEditor.defaultConfig = {
 			'alignment',
 			'bold',
 			'italic',
+			'underline',
 			'link',
 			'|',
 			'bulletedList',
@@ -95,6 +100,9 @@ ClassicEditor.defaultConfig = {
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
+			'|',
+			'div',
+			'|',
 			'undo',
 			'redo'
 		]
@@ -149,7 +157,7 @@ ClassicEditor.defaultConfig = {
 			},
 			{
 				color: '#e0be36',
-				label:'MeatBrown'
+				label: 'MeatBrown'
 			},
 			{
 				color: '#feffa5',
@@ -253,6 +261,7 @@ ClassicEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
+
 	table: {
 		contentToolbar: [
 			'tableColumn',

@@ -1,1 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Akronim|Josefin+Sans|Livvic|Poppins&display=swap');
+
+body {
+    margin: 20px auto;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+content {
+    width: 100%;
+}
